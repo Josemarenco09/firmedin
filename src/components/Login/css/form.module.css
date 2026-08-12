@@ -1,0 +1,12 @@
+.inputLogin {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.boxInputLogin {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 300px;
+}

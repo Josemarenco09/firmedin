@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sectionNav {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  margin-right: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 350px;
+  list-style: none;
+}
