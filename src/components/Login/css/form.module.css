@@ -1,7 +1,15 @@
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .inputLogin {
   display: flex;
   flex-direction: column;
   align-content: center;
+  padding-top: 50px;
 }
 
 .boxInputLogin {
@@ -9,4 +17,13 @@
   flex-direction: column;
   align-content: center;
   width: 300px;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 50px;
+  margin-top: 20px;
 }

@@ -4,14 +4,16 @@ function form() {
   return (
     <form className={styles.formLogin}>
       <label className={styles.inputLogin}>
-        user
+        User
         <input className={styles.boxInputLogin} type="text" />
       </label>
       <label className={styles.inputLogin}>
-        password
+        Password
         <input className={styles.boxInputLogin} type="password" />
       </label>
-      <button type="submit"></button>
+      <button className={styles.submitButton} type="submit">
+        Submit
+      </button>
     </form>
   );
 }
