@@ -1,11 +1,12 @@
 import Header from "./Header";
 
-function index() {
+function HomePage({ user }: { user: string }) {
   return (
     <>
       <Header></Header>
+      <p>{user}</p>
     </>
   );
 }
 
-export default index;
+export default HomePage;

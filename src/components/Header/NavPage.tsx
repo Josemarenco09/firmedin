@@ -12,7 +12,7 @@ function NavPage() {
             <a>Mis registros</a>
           </li>
           <li>
-            <a>Cerrar sesion</a>
+            <a>Log Out</a>
           </li>
         </ul>
       </section>

@@ -3,13 +3,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
+  padding: 40px 50px 30px;
+  background: #F6F9FD;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(2, 8, 20, 0.55);
+  border-top: 5px solid #0965DA;
 }
 
 .inputLogin {
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding-top: 50px;
+  padding-top: 20px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #062455;
 }
 
 .boxInputLogin {
@@ -17,19 +29,59 @@
   flex-direction: column;
   align-content: center;
   width: 300px;
+  margin-top: 8px;
+  padding: 12px 16px;
+  border: 2px solid #ACD5FC;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #051125;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boxInputLogin::placeholder {
+  color: #71B0F3;
+}
+
+.boxInputLogin:focus {
+  border-color: #0965DA;
+  box-shadow: 0 0 0 3px rgba(9, 101, 218, 0.25);
 }
 
 .submitButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 100%;
   height: 50px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0965DA, #094CB0);
+  color: #F6F9FD;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(9, 101, 218, 0.45);
+}
+
+.submitButton:active {
+  transform: translateY(0);
 }
 
 .error {
-  font-size: 30px;
-  color: red;
+  font-size: 14px;
+  color: #C0392B;
+  background: rgba(192, 57, 43, 0.1);
+  border-radius: 6px;
+  padding: 8px 12px;
 }

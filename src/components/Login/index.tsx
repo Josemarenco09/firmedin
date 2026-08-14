@@ -1,12 +1,13 @@
 import Form from "./form";
 import styles from "./css/login.module.css";
+import type { Dispatch, SetStateAction } from "react";
 
-function Login() {
+function Login({ setUser }: { setUser: Dispatch<SetStateAction<string>> }) {
   return (
     <>
       <section className={styles.sectionLogin}>
         <h1> Login </h1>
-        <Form></Form>
+        <Form setUser={setUser}></Form>
       </section>
     </>
   );

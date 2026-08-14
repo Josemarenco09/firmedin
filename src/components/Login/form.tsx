@@ -1,18 +1,21 @@
 import { useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import styles from "./css/form.module.css";
 
-function form() {
-  const [user, setUser] = useState("");
+function Form({ setUser }: { setUser: Dispatch<SetStateAction<string>> }) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    if (user === "" || password === "") {
+    if (username === "" || password === "") {
       setError(true);
       return;
     }
+
+    setUser(username);
   };
 
   return (
@@ -22,8 +25,8 @@ function form() {
         <input
           className={styles.boxInputLogin}
           type="text"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         ></input>
       </label>
       <label className={styles.inputLogin}>
@@ -44,4 +47,4 @@ function form() {
   );
 }
 
-export default form;
+export default Form;

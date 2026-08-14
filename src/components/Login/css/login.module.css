@@ -6,4 +6,18 @@
   justify-content: center;
   width: 100%;
   min-height: 100vh;
+  background: linear-gradient(160deg, #051125 0%, #062455 55%, #0965DA 100%);
+  color: #F6F9FD;
+}
+
+.sectionLogin h1 {
+  font-size: 48px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+  background: linear-gradient(90deg, #ACD5FC, #F6F9FD);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
