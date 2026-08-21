@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/components/Header"],
+  "include": ["src", "src/components/Header", "backend"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

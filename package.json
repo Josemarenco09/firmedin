@@ -1,8 +1,20 @@
 {
-  "name": "react-app",
+  "name": "back",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "homepage": "https://github.com/Josemarenco09/firmedin#readme",
+  "bugs": {
+    "url": "https://github.com/Josemarenco09/firmedin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Josemarenco09/firmedin.git"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "server.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,6 +23,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "express": "^5.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
