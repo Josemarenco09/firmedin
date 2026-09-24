@@ -30,15 +30,16 @@ enum SignatureCategory {
 }
 
 model Signature {
-  id        String            @id @default(uuid())
-  label     String
-  imageData String
-  category  SignatureCategory @default(OTRO)
-  notes     String?
-  createdAt DateTime          @default(now())
-  updatedAt DateTime          @updatedAt
-  userId    String
-  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id            String            @id @default(uuid())
+  label         String
+  imageData     String
+  imagePublicId String?
+  category      SignatureCategory @default(OTRO)
+  notes         String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  userId        String
+  user          User              @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
