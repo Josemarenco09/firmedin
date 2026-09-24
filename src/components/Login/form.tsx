@@ -1,32 +1,48 @@
 import { useState } from "react";
-import type { Dispatch, SetStateAction } from "react";
+import type { FormEvent } from "react";
 import styles from "./css/form.module.css";
 
-function Form({ setUser }: { setUser: Dispatch<SetStateAction<string>> }) {
-  const [username, setUsername] = useState("");
+function Form({ onLogin }: { onLogin: (token: string, userName: string) => void }) {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (username === "" || password === "") {
-      setError(true);
+    if (email === "" || password === "") {
+      setError("Todos los campos son obligatorios");
       return;
     }
 
-    setUser(username);
+    try {
+      const res = await fetch("http://localhost:3000/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!res.ok) {
+        setError("Credenciales inválidas");
+        return;
+      }
+
+      const data = await res.json();
+      onLogin(data.token, data.user.name);
+    } catch {
+      setError("No se pudo conectar con el servidor");
+    }
   };
 
   return (
     <form className={styles.formLogin} onSubmit={handleSubmit}>
       <label className={styles.inputLogin}>
-        User
+        Email
         <input
           className={styles.boxInputLogin}
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         ></input>
       </label>
       <label className={styles.inputLogin}>
@@ -42,7 +58,7 @@ function Form({ setUser }: { setUser: Dispatch<SetStateAction<string>> }) {
         Submit
       </button>
 
-      {error ? <p className={styles.error}> Todos los campos son obligatorios </p> : ""}
+      {error && <p className={styles.error}>{error}</p>}
     </form>
   );
 }

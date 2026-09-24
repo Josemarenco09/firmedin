@@ -3,14 +3,27 @@ import HomePage from "./components/HomePage.tsx";
 import { useState } from "react";
 
 function App() {
+  const [token, setToken] = useState<string | null>(() => localStorage.getItem("token"));
+  const [user, setUser] = useState<string>(() => localStorage.getItem("userName") ?? "");
 
-  const [user, setUser] = useState("")
+  const handleLogin = (newToken: string, userName: string) => {
+    localStorage.setItem("token", newToken);
+    localStorage.setItem("userName", userName);
+    setToken(newToken);
+    setUser(userName);
+  };
 
-  return (
-    <>
-      <Login setUser={setUser}></Login>
-      <HomePage user={user}></HomePage>
-    </>
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    setToken(null);
+    setUser("");
+  };
+
+  return token ? (
+    <HomePage user={user} onLogout={handleLogout}></HomePage>
+  ) : (
+    <Login onLogin={handleLogin}></Login>
   );
 }
 
