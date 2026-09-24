@@ -1,6 +1,6 @@
 import styles from "./header.module.css";
 
-function NavPage() {
+function NavPage({ onLogout }: { onLogout: () => void }) {
   return (
     <>
       <section className={styles.sectionNav}>
@@ -12,7 +12,7 @@ function NavPage() {
             <a>Mis registros</a>
           </li>
           <li>
-            <a>Log Out</a>
+            <a onClick={onLogout}>Log Out</a>
           </li>
         </ul>
       </section>

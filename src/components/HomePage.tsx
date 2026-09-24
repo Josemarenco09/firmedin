@@ -1,9 +1,9 @@
 import Header from "./Header";
 
-function HomePage({ user }: { user: string }) {
+function HomePage({ user, onLogout }: { user: string; onLogout: () => void }) {
   return (
     <>
-      <Header></Header>
+      <Header onLogout={onLogout}></Header>
       <p>{user}</p>
     </>
   );

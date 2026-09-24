@@ -2,12 +2,12 @@ import Image from "./Image";
 import NavPage from "./NavPage";
 import styles from "./header.module.css";
 
-function Index() {
+function Index({ onLogout }: { onLogout: () => void }) {
   return (
     <>
       <div className={styles.header}>
         <Image></Image>
-        <NavPage></NavPage>
+        <NavPage onLogout={onLogout}></NavPage>
       </div>
     </>
   );
