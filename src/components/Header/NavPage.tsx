@@ -1,18 +1,22 @@
+import { NavLink } from "react-router-dom";
 import styles from "./header.module.css";
+import { useAuth } from "../../context/AuthContext";
 
-function NavPage({ onLogout }: { onLogout: () => void }) {
+function NavPage() {
+  const { logout } = useAuth();
+
   return (
     <>
       <section className={styles.sectionNav}>
         <ul className={styles.nav}>
           <li>
-            <a>Inicio</a>
+            <NavLink to="/inicio">Inicio</NavLink>
           </li>
           <li>
-            <a>Mis registros</a>
+            <NavLink to="/firmas">Mis registros</NavLink>
           </li>
           <li>
-            <a onClick={onLogout}>Log Out</a>
+            <a onClick={logout}>Log Out</a>
           </li>
         </ul>
       </section>

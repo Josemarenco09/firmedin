@@ -1,9 +1,12 @@
 import Header from "./Header";
+import { useAuth } from "../context/AuthContext";
 
-function HomePage({ user, onLogout }: { user: string; onLogout: () => void }) {
+function HomePage() {
+  const { user } = useAuth();
+
   return (
     <>
-      <Header onLogout={onLogout}></Header>
+      <Header></Header>
       <p>{user}</p>
     </>
   );

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import styles from "./css/form.module.css";
+import { useAuth } from "../../context/AuthContext";
 
-function Form({ onLogin }: { onLogin: (token: string, userName: string) => void }) {
+function Form() {
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +30,7 @@ function Form({ onLogin }: { onLogin: (token: string, userName: string) => void 
       }
 
       const data = await res.json();
-      onLogin(data.token, data.user.name);
+      login(data.token, data.user.name);
     } catch {
       setError("No se pudo conectar con el servidor");
     }

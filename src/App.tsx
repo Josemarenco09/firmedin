@@ -1,29 +1,21 @@
+import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/index.tsx";
 import HomePage from "./components/HomePage.tsx";
-import { useState } from "react";
+import Signatures from "./components/Signatures.tsx";
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
 
 function App() {
-  const [token, setToken] = useState<string | null>(() => localStorage.getItem("token"));
-  const [user, setUser] = useState<string>(() => localStorage.getItem("userName") ?? "");
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
 
-  const handleLogin = (newToken: string, userName: string) => {
-    localStorage.setItem("token", newToken);
-    localStorage.setItem("userName", userName);
-    setToken(newToken);
-    setUser(userName);
-  };
+      <Route element={<ProtectedRoute />}>
+        <Route path="/inicio" element={<HomePage />} />
+        <Route path="/firmas" element={<Signatures />} />
+      </Route>
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userName");
-    setToken(null);
-    setUser("");
-  };
-
-  return token ? (
-    <HomePage user={user} onLogout={handleLogout}></HomePage>
-  ) : (
-    <Login onLogin={handleLogin}></Login>
+      <Route path="*" element={<Navigate to="/inicio" replace />} />
+    </Routes>
   );
 }
 
