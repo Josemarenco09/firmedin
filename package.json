@@ -21,7 +21,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "tsx backend/server.ts",
-    "server:dev": "tsx watch backend/server.ts"
+    "server:dev": "tsx watch backend/server.ts",
+    "create-user": "tsx backend/scripts/create-user.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.0",
