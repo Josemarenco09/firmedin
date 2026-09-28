@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import styles from "./css/form.module.css";
 import { useAuth } from "../../context/AuthContext";
+import { API_URL } from "../../lib/api";
 
 function Form() {
   const { login } = useAuth();
@@ -18,7 +19,7 @@ function Form() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/auth/login", {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
