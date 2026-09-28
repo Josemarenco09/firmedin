@@ -32,6 +32,10 @@ router.use(requireAuth);
 router.get("/", async (req: AuthRequest, res) => {
   const { category } = req.query;
 
+  if (category && !VALID_CATEGORIES.includes(category as SignatureCategory)) {
+    return res.status(400).json({ error: `category debe ser una de: ${VALID_CATEGORIES.join(", ")}` });
+  }
+
   const signatures = await prisma.signature.findMany({
     where: {
       userId: req.userId!,
