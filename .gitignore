@@ -35,3 +35,7 @@ dist-ssr
 /.agents
 /.windsurf
 skills-lock.json
+
+# SQLite database (contains password hashes)
+*.db
+*.db-journal
