@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo_firma_pagina.png";
+
 const stylesImage = {
   width: "150px",
 };
 
-import reactLogo from "../../assets/logo_firma_pagina.png";
-
 function Image() {
   return (
     <>
-      <img src={reactLogo} style={stylesImage}></img>
+      <Link to="/inicio">
+        <img src={logo} alt="FirmaVault" style={stylesImage}></img>
+      </Link>
     </>
   );
 }
